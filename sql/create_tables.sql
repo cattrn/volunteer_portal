@@ -1,0 +1,79 @@
+DROP TABLE IF EXISTS teams;
+
+CREATE TABLE IF NOT EXISTS teams(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  team_name VARCHAR(100) NOT NULL UNIQUE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE IF NOT EXISTS users(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  firstname VARCHAR(255) NOT NULL,
+  lastname VARCHAR(255) NOT NULL,
+  contact_number VARCHAR(50),
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password CHAR(60) NOT NULL,
+  primary_team VARCHAR(255),
+  position VARCHAR(255),
+  employee_status VARCHAR(50) NOT NULL DEFAULT 'volunteer',
+  city VARCHAR(100),
+  commencement_date TIMESTAMPTZ,
+  active BOOLEAN NOT NULL DEFAULT true,
+  return_date TIMESTAMPTZ,
+  last_login TIMESTAMPTZ,
+  user_role VARCHAR(50) NOT NULL DEFAULT 'member',
+
+  CONSTRAINT fk_team
+    FOREIGN KEY(primary_team)
+      REFERENCES teams(team_name)
+      ON DELETE SET NULL
+      ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS volunteer_logs;
+
+CREATE TABLE IF NOT EXISTS volunteer_logs(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  created_by INT,
+  owned_by INT NOT NULL,
+  fullname VARCHAR(255) NOT NULL,
+  team VARCHAR(255) NOT NULL,
+  start_time TIMESTAMPTZ NOT NULL,
+  end_time TIMESTAMPTZ NOT NULL,
+  activity VARCHAR(255) NOT NULL,
+
+  CONSTRAINT fk_creator
+    FOREIGN KEY(created_by)
+      REFERENCES users(id)
+      ON DELETE SET NULL,
+
+  CONSTRAINT fk_owner
+    FOREIGN KEY(owned_by)
+      REFERENCES users(id)
+      ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS invitations;
+
+CREATE TABLE IF NOT EXISTS invitations (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    hash CHAR(60) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+DROP TABLE IF EXISTS password_reset;
+
+CREATE TABLE IF NOT EXISTS password_reset (
+    hash_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    hash CHAR(60) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+
+    FOREIGN KEY(email) 
+      REFERENCES users(email)
+      ON DELETE CASCADE
+);
+
