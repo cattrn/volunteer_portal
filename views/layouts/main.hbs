@@ -13,6 +13,17 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-  {{{body}}}
+  <div class="container flex">
+    {{!-- {{#if loggedInUser}} --}}
+    {{> nav }}
+    {{!-- {{/if}} --}}
+    <div class="page">
+      {{> hourLogging }}
+      {{!-- TODO: check if employees need to log hours --}}
+      <div class="page-content">
+        {{{body}}}
+      </div>
+    </div>
+  </div>
 </body>
 </html>

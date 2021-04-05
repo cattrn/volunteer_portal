@@ -1,0 +1,33 @@
+<div class="hour-logging">
+  <a class="close-hour-logging"><img src="/assets/icons/times-solid.svg" alt="close hour logging" /></a>
+  <strong>Are you working? Incredible, thank you!</strong>
+  <form class="flex" method="POST" action="/hours">
+    <div>
+      <label class="hidden" for="name"></label>
+      <select name="name" id="name" required>
+        <option value="Some guy">Some guy</option>
+        <option value="filler">Just a filler</option>
+        {{!-- FILL DYNAMICALLY WITH NAMES, AUTOSELECT LOGGED IN USER --}}
+      </select>
+    </div>
+    <div>
+      <label class="hidden" for="teams"></label>
+      <select name="teams" id="teams" required>
+        <option value="team awesome">Team awesome</option>
+        <option value="more filler">This is more filler</option>
+        {{!-- FILL DYNAMICALLY WITH TEAMS, AUTOSELECT LOGGED IN USER TEAM --}}
+      </select>
+    </div>
+    <div class="relative">
+      <label class="hidden" for="start-time"></label>
+      <input type="datetime-local" name="start-time" id="start-time" />
+      <a class="set-start-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" /></a>
+    </div>
+    <div class="relative">
+      <label class="hidden" for="end-time"></label>
+      <input type="datetime-local" name="end-time" id="end-time" />
+      <a class="set-end-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" /></a>
+    </div>
+    <button type="submit">Log hours</button>
+  </form>
+</div>

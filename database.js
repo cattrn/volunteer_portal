@@ -5,4 +5,3 @@ let connection = process.env.DATABASE_URL || `postgres://${process.env.PGUSER}:$
 const db = pgp(connection);
 
 module.exports = db;
-
