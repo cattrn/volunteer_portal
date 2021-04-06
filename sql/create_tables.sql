@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS users(
   return_date TIMESTAMPTZ,
   last_login TIMESTAMPTZ,
   user_role VARCHAR(50) NOT NULL DEFAULT 'member',
+  avatar VARCHAR(50),
 
   CONSTRAINT fk_team
     FOREIGN KEY(primary_team)

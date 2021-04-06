@@ -1,5 +1,34 @@
-<div class="dashboard-details"></div>
+<div class="dashboard-details">
+  <h1>My Details</h1>
+  <div class="flex">
+    <div>
+      <img class="avatar details-avatar" src="{{user.avatar}}" alt="{{user.firstname}} {{user.lastname}}" />
+      <form action="/upload-avatar" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" />
+        <button type="submit">Upload</button>
+      </form>
+      {{!-- TODO: change url --}}
+      <a href="#">Change photo <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
+    </div>
+
+
+    <div>
+      <p><strong>First name: </strong>{{user.firstname}}</p>
+      <p><strong>Last name: </strong>{{user.lastname}}</p>
+      <p><strong>Contact number: </strong>{{user.contact_number}}</p>
+      <p><strong>Email: </strong>{{user.email}}</p>
+      <p><strong>Team: </strong>{{user.primary_team}}</p>
+      <p><strong>Position: </strong>{{user.position}}</p>
+      <p><strong>Employee status: </strong>{{user.employee_status}}</p>
+      <p><strong>City: </strong>{{user.city}}</p>
+      <p><strong>Commencement date: </strong>{{user.commencement_date}}</p>
+      <p><strong>Currently active: </strong>{{user.active}}</p>
+      {{!-- TODO: change url --}}
+      <a href="#">Edit details <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
+    </div>
+  </div>
+</div>
 <div class="utils">
-  <div class="links"></div>
+  {{> links}}
   <div class="todo"></div>
 </div>
