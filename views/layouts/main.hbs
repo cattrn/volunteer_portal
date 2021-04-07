@@ -11,18 +11,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/js/utils/dates.js" defer></script>
+  <script src="/js/hourLoggingHandling.js" defer></script>
+  <script src="/js/dashboardHandling.js" defer></script>
 </head>
 <body>
-  <div class="container flex">
+  <div class="container">
     {{!-- {{#if loggedInUser}} --}}
     {{> nav }}
     {{!-- {{/if}} --}}
-    <div class="page">
-      {{> hourLogging }}
-      {{!-- TODO: check if employees need to log hours --}}
-      <div class="page-content">
-        {{{body}}}
-      </div>
+    {{> hourLogging }}
+    {{!-- TODO: check if employees need to log hours --}}
+    <div class="page-content">
+      {{{body}}}
     </div>
   </div>
 </body>

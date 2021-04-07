@@ -15,12 +15,17 @@ body {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+  background-color: var(--background-color);
 }
 
 /* TYPOGRAPHY --------- */
 
 a, h1 {
   color: var(--feature-color);
+}
+
+a {
+  text-decoration: underline;
 }
 
 a, button, select, input[type="datetime-local"] {
@@ -33,18 +38,45 @@ h1, h2, h3, h4, h5 {
 }
 
 p {
-  line-height: 1.5rem;
+  line-height: 1.75rem;
+  color: black;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
 }
 
 /* LAYOUT -------------- */
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
 
 .flex {
   display: flex;
 }
 
+/* flex gutter */
+.flex > :not(:last-child) {
+  margin-right: 20px;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+/* vertical flex gutter */
+.flex-column:not(.sidebar) > :not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .flex-center {
@@ -56,14 +88,22 @@ p {
   position: relative;
 }
 
-.page {
-  flex-grow: 1;
-  background-color: var(--background-color);
-}
-
 .page-content {
   padding: 40px;
   display: flex;
+  margin-top: 120px;
+  margin-left: 200px;
+  transition: margin-top 1s ease;
+}
+
+.page-content.hour-logging-closed {
+  margin-top: 0;
+}
+
+.tooltip {
+  width: 50px;
+  text-align: center;
+  background-color: var(--background-color);
 }
 
 .avatar {
@@ -97,7 +137,43 @@ button {
   font-weight: 900;
 }
 
+input[type="file"] {
+  border: none;
+}
+
+input.upload-avatar::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input.upload-avatar::before {
+  content: 'Choose photo';
+  background-color: var(--feature-color);
+  color: white;
+  display: inline-block;
+  border: none;
+  padding: 10px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+input.upload-avatar + button {
+  background-color: var(--feature-color);
+  color: white;
+  padding: 10px;
+  text-transform: none;
+  font-weight: 400;
+}
+
+input.upload-avatar + button:hover, input.upload-avatar:hover::before {
+  background-color: var(--dark-color);
+}
+
 /* PROFILE -------------- */
+
+.dashboard-details > .flex > div:first-child {
+  text-align: center;
+}
 
 .dashboard-details .details-avatar {
   width: 200px;
@@ -110,9 +186,11 @@ button {
 
 .sidebar {
   background-color: var(--dark-color);
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   overflow-y: scroll;
-  position: sticky;
+  position: fixed;
+  top: 0;
   width: 200px;
   min-width: 200px;
   color: white;
@@ -151,6 +229,7 @@ button {
 
 .sidebar a {
   color: white;
+  text-decoration: none;
 }
 
 .sidebar .nav-icon {
@@ -173,44 +252,67 @@ button {
   text-align: center;
   padding: 15px;
   font-size: .75em;
+  color: white;
+  line-height: 1.25em;
 }
 
 /* HOUR LOGGING ---------- */
 
 .hour-logging {
   background-color: var(--feature-color);
-  width: 100%;
+  min-width: calc(100vw - 200px);
   padding: 20px;
   color: white;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 200px;
   height: 118px;
+  transition: top 1s ease;
+}
+
+.hour-logging.closed {
+  top: -120px;
 }
 
 .hour-logging form.flex {
   justify-content: space-between;
 }
 
-/* .hour-logging form > div {
+.hour-logging form > div:not(:last-child) {
   width: 100%;
-} */
-
-.hour-logging .hour-icon {
-  width: 20px;
 }
 
 .hour-logging .close-hour-logging {
+  text-align: right;
+}
+
+.hour-logging .close-hour-logging img {
   position: absolute;
+  right: 30px;
   top: 10px;
-  right: 10px;
   width: 15px;
 }
 
 .hour-logging .hour-icon {
+  width: 20px;
   position: absolute;
   right: 40px;
-  top: calc(50% - 15px);
+  bottom: calc(50% - 15px);
+}
+
+.open-hour-logging {
+  text-align: center;
+  cursor: pointer;
+}
+
+.open-hour-logging > div {
+  font-size: 1.25em;
+  display: inline;
+  position: relative;
+  top: 10px;
+  padding: 5px 25px;
+  border-radius: 0 0 15px 15px;
+  background-color: var(--feature-color);
 }
 
 /* LINKS -------------- */

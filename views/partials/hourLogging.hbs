@@ -1,33 +1,41 @@
 <div class="hour-logging">
-  <a class="close-hour-logging"><img src="/assets/icons/times-solid.svg" alt="close hour logging" /></a>
   <strong>Are you working? Incredible, thank you!</strong>
+  <a class="close-hour-logging"><img src="/assets/icons/times-solid.svg" alt="close hour logging" /></a>
   <form class="flex" method="POST" action="/hours">
     <div>
       <label class="hidden" for="name"></label>
       <select name="name" id="name" required>
-        <option value="Some guy">Some guy</option>
-        <option value="filler">Just a filler</option>
-        {{!-- FILL DYNAMICALLY WITH NAMES, AUTOSELECT LOGGED IN USER --}}
+        {{#each users}}
+        <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
+        {{/each}}
       </select>
     </div>
     <div>
       <label class="hidden" for="teams"></label>
       <select name="teams" id="teams" required>
-        <option value="team awesome">Team awesome</option>
-        <option value="more filler">This is more filler</option>
-        {{!-- FILL DYNAMICALLY WITH TEAMS, AUTOSELECT LOGGED IN USER TEAM --}}
+        {{#each teams}}
+        <option value="{{this.id}}">{{this.team_name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="relative">
       <label class="hidden" for="start-time"></label>
       <input type="datetime-local" name="start-time" id="start-time" />
-      <a class="set-start-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" /></a>
+      <a class="set-start-time hour-icon">
+        {{!-- <div class="tooltip">
+          <p>Insert time now</p>
+        </div> --}}
+        <img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" />
+      </a>
     </div>
     <div class="relative">
       <label class="hidden" for="end-time"></label>
       <input type="datetime-local" name="end-time" id="end-time" />
-      <a class="set-end-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" /></a>
+      <a class="set-end-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" /></a>
     </div>
     <button type="submit">Log hours</button>
   </form>
+  <div class="open-hour-logging hidden">
+    <div><strong>Log hours</strong></div>
+  </div>
 </div>
