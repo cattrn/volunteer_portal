@@ -1,0 +1,32 @@
+<div style="width: 100%;">
+  <h1>Edit log</h1>
+  <form action="/hours/edit/{{log.id}}" method="post">
+    <div>
+      <label class="hidden" for="activity"></label>
+      <input type="text" name="activity" id="activity" value="{{log.activity}}" required />
+    </div>
+    <div>
+      <label class="hidden" for="teams"></label>
+      <select name="team" id="teams" required>
+        {{#each teams}}
+        <option value="{{this.team_name}}"
+        {{#ifEquals ../log.team this.team_name}}
+        selected
+        {{/ifEquals}}
+        >{{this.team_name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div>
+      <label class="hidden" for="start_time"></label>
+      <input type="datetime-local" name="start_time" id="start_time" value="{{log.start_time}}" required />
+    </div>
+
+    <div>
+      <label class="hidden" for="end_time"></label>
+      <input type="datetime-local" name="end_time" id="end_time" value="{{log.end_time}}" required />
+    </div>
+    <button type="submit">Update</button>
+    <a href="hours/delete/{{log.id}}">Delete?</a>
+  </form>
+</div>

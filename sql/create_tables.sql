@@ -39,8 +39,7 @@ CREATE TABLE IF NOT EXISTS volunteer_logs(
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   created_by INT,
   owned_by INT NOT NULL,
-  fullname VARCHAR(255) NOT NULL,
-  team VARCHAR(255) NOT NULL,
+  team VARCHAR(100) NOT NULL,
   start_time TIMESTAMPTZ NOT NULL,
   end_time TIMESTAMPTZ NOT NULL,
   activity VARCHAR(255) NOT NULL,
@@ -53,7 +52,13 @@ CREATE TABLE IF NOT EXISTS volunteer_logs(
   CONSTRAINT fk_owner
     FOREIGN KEY(owned_by)
       REFERENCES users(id)
-      ON DELETE CASCADE
+      ON DELETE CASCADE,
+
+  CONSTRAINT fk_team
+    FOREIGN KEY(team)
+      REFERENCES teams(team_name)
+      ON DELETE SET NULL
+      ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS invitations;

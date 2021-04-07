@@ -7,3 +7,5 @@ function nowToInput() {
   const time = date.toString().slice(16, 21)
   return year + '-' + month + '-' + day + 'T' + time
 }
+
+

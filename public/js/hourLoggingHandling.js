@@ -14,9 +14,9 @@ $('.open-hour-logging').click(() => {
 
 // set input time to now
 $('.set-start-time').click(() => {
-  $('#start-time').val(nowToInput())
+  $('#start_time').val(nowToInput())
 })
 
 $('.set-end-time').click(() => {
-  $('#end-time').val(nowToInput())
+  $('#end_time').val(nowToInput())
 })

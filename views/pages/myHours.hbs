@@ -1,0 +1,27 @@
+<div style="width:100%;">
+  <h1>My Logged Hours</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th>Team</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Length</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        <td>{{this.activity}}</td>
+        <td>{{this.team}}</td>
+        <td>{{this.start_time}}</td>
+        <td>{{this.end_time}}</td>
+        <td>{{this.duration}}</td>
+        <td><a href="/hours/edit/{{this.id}}">Edit <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

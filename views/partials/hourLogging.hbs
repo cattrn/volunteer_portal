@@ -1,39 +1,51 @@
 <div class="hour-logging">
   <strong>Are you working? Incredible, thank you!</strong>
   <a class="close-hour-logging"><img src="/assets/icons/times-solid.svg" alt="close hour logging" /></a>
-  <form class="flex" method="POST" action="/hours">
-    <div>
-      <label class="hidden" for="name"></label>
-      <select name="name" id="name" required>
-        {{#each users}}
-        <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
-        {{/each}}
-      </select>
+  <form method="POST" action="/hours/add">
+    <div class="flex">
+      <div>
+        <label class="hidden" for="name"></label>
+        <select name="id" id="name" required>
+          {{#each users}}
+          <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div>
+        <label class="hidden" for="teams"></label>
+        <select name="team" id="teams" required>
+          {{#each teams}}
+          <option value="{{this.team_name}}" 
+          {{#ifEquals ../currentUser.primary_team this.team_name}}
+          selected
+          {{/ifEquals}}
+          >{{this.team_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="relative">
+        <label class="hidden" for="start_time"></label>
+        <input type="datetime-local" name="start_time" id="start_time" required />
+        <a class="set-start-time hour-icon">
+          {{!-- <div class="tooltip">
+            <p>Insert time now</p>
+          </div> --}}
+          <img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" />
+        </a>
+      </div>
+      <div class="relative">
+        <label class="hidden" for="end_time"></label>
+        <input type="datetime-local" name="end_time" id="end_time" required />
+        <a class="set-end-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" /></a>
+      </div>
     </div>
-    <div>
-      <label class="hidden" for="teams"></label>
-      <select name="teams" id="teams" required>
-        {{#each teams}}
-        <option value="{{this.id}}">{{this.team_name}}</option>
-        {{/each}}
-      </select>
+    <div class="flex">
+      <div>
+        <label class="hidden" for="activity"></label>
+        <input type="text" name="activity" id="activity" placeholder="Enter activity here" />
+      </div>
+      <button type="submit">Log hours</button>
     </div>
-    <div class="relative">
-      <label class="hidden" for="start-time"></label>
-      <input type="datetime-local" name="start-time" id="start-time" />
-      <a class="set-start-time hour-icon">
-        {{!-- <div class="tooltip">
-          <p>Insert time now</p>
-        </div> --}}
-        <img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" />
-      </a>
-    </div>
-    <div class="relative">
-      <label class="hidden" for="end-time"></label>
-      <input type="datetime-local" name="end-time" id="end-time" />
-      <a class="set-end-time hour-icon"><img src="/assets/icons/stopwatch-solid.svg" alt="stopwatch icon" title="Insert current time" /></a>
-    </div>
-    <button type="submit">Log hours</button>
   </form>
   <div class="open-hour-logging hidden">
     <div><strong>Log hours</strong></div>

@@ -11,8 +11,8 @@
       alt="{{currentUser.firstname}} {{currentUser.lastname}}" />
       {{!-- TODO: change url --}}
       <a class="open-upload-avatar">Change photo <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
-      <form class="invisible" action="/upload-avatar" method="post" enctype="multipart/form-data">
-        <input class="black upload-avatar" type="file" name="avatar" />
+      <form class="invisible flex" action="/upload-avatar" method="post" enctype="multipart/form-data">
+        <input class="upload-avatar" type="file" name="avatar" />
         <button type="submit">Upload</button>
       </form>
     </div>
