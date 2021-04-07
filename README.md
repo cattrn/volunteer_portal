@@ -7,14 +7,15 @@ A volunteer portal to support directory and record keeping, induction and onboar
 
 [ ] Role-based users
 [ ] Document signing and uploading
-[ ] Volunteer hour logging - can log other people's hours + check for overlapping logs
-[ ] Links to Slack, Email, Drive, Trello & the ability to add links to other services
+[X] Volunteer hour logging - can log other people's hours
+[ ] Check for overlapping logs
+[X] Links to Slack, Email, Drive, Trello
 [ ] Inviting new members to Slack, Google Drive & Trello - non-priority
 [ ] User directory
 [ ] Policy directory
 [ ] The ability for users to update their details
-[ ] The ability for volunteers to go on leave/quit
-[ ] The ability for volunteers to request employment
+[ ] The ability for volunteers to go on leave/quit - non priority
+[ ] The ability for volunteers to request employment - non-priority
 [ ] The ability to schedule online meetings with others - non-priority
 
 
