@@ -2,33 +2,36 @@
   <h1>My Details</h1>
   <div class="flex">
     <div>
-      <img class="avatar details-avatar" src="{{user.avatar}}" alt="{{user.firstname}} {{user.lastname}}" />
-      <form action="/upload-avatar" method="post" enctype="multipart/form-data">
-        <input type="file" name="avatar" />
+      <img class="avatar details-avatar"
+      {{#if currentUser.avatar}}
+      src="{{currentUser.avatar}}"
+      {{else}}
+      src="/uploads/avatars/avatar-default.jpg"
+      {{/if}}
+      alt="{{currentUser.firstname}} {{currentUser.lastname}}" />
+      {{!-- TODO: change url --}}
+      <a class="open-upload-avatar">Change photo <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
+      <form class="invisible" action="/upload-avatar" method="post" enctype="multipart/form-data">
+        <input class="black upload-avatar" type="file" name="avatar" />
         <button type="submit">Upload</button>
       </form>
-      {{!-- TODO: change url --}}
-      <a href="#">Change photo <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
     </div>
 
 
     <div>
-      <p><strong>First name: </strong>{{user.firstname}}</p>
-      <p><strong>Last name: </strong>{{user.lastname}}</p>
-      <p><strong>Contact number: </strong>{{user.contact_number}}</p>
-      <p><strong>Email: </strong>{{user.email}}</p>
-      <p><strong>Team: </strong>{{user.primary_team}}</p>
-      <p><strong>Position: </strong>{{user.position}}</p>
-      <p><strong>Employee status: </strong>{{user.employee_status}}</p>
-      <p><strong>City: </strong>{{user.city}}</p>
-      <p><strong>Commencement date: </strong>{{user.commencement_date}}</p>
-      <p><strong>Currently active: </strong>{{user.active}}</p>
+      <p><strong>First name: </strong>{{currentUser.firstname}}</p>
+      <p><strong>Last name: </strong>{{currentUser.lastname}}</p>
+      <p><strong>Contact number: </strong>{{currentUser.contact_number}}</p>
+      <p><strong>Email: </strong>{{currentUser.email}}</p>
+      <p><strong>Team: </strong>{{currentUser.primary_team}}</p>
+      <p><strong>Position: </strong>{{currentUser.position}}</p>
+      <p><strong>Employee status: </strong>{{currentUser.employee_status}}</p>
+      <p><strong>City: </strong>{{currentUser.city}}</p>
+      <p><strong>Commencement date: </strong>{{currentUser.commencement_date}}</p>
+      <p><strong>Currently active: </strong>{{currentUser.active}}</p>
       {{!-- TODO: change url --}}
       <a href="#">Edit details <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a>
     </div>
   </div>
 </div>
-<div class="utils">
-  {{> links}}
-  <div class="todo"></div>
-</div>
+<div class="todo"></div>
