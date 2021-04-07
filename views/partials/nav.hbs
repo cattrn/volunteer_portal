@@ -4,23 +4,43 @@
   </div>
   <nav>
     <div class="nav-link dashboard-link active">
-      <img class="icon nav-icon" src="/assets/icons/home-solid.svg" alt="home icon" /><a>Dashboard</a>
+      <img class="icon nav-icon" src="/assets/icons/home-solid.svg" alt="home icon" />Dashboard
     </div>
     <div class="nav-link induction-link">
-      <img class="icon nav-icon" src="/assets/icons/user-plus-solid.svg" alt="user with plus icon" /><a>Induction</a>
+      <img class="icon nav-icon" src="/assets/icons/user-plus-solid.svg" alt="user with plus icon" />Induction
     </div>
     <div class="nav-link hours-link">
-      <img class="icon nav-icon" src="/assets/icons/clock-solid.svg" alt="clock icon" /><a>My Hours</a>
+      <img class="icon nav-icon" src="/assets/icons/clock-solid.svg" alt="clock icon" />My Hours
     </div>
     <div class="nav-link members-link">
-      <img class="icon nav-icon" src="/assets/icons/address-book-solid.svg" alt="address book icon" /><a>Members</a>
+      <img class="icon nav-icon" src="/assets/icons/address-book-solid.svg" alt="address book icon" />Members
     </div>
     <div class="nav-link policies-link">
-      <img class="icon nav-icon" src="/assets/icons/file-alt-solid.svg" alt="file icon" /><a>Policies</a>
+      <img class="icon nav-icon" src="/assets/icons/file-alt-solid.svg" alt="file icon" />Policies
     </div>
     <div class="nav-link resources-link">
-      <img class="icon nav-icon" src="/assets/icons/window-restore-solid.svg" alt="windows icon" /><a>Resources</a>
+      <img class="icon nav-icon" src="/assets/icons/window-restore-solid.svg" alt="windows icon" />Resources
     </div>
+    <a href="slack://open?team=T01AG227QN5" target="_blank">
+      <div class="nav-link slack-link">
+        <img class="icon nav-icon" src="/assets/icons/slack-brands.svg" alt="slack icon" />Slack
+      </div>
+    </a>
+    <a href="https://trello.com/myndinitiativeinc" target="_blank">
+      <div class="nav-link trello-link">
+        <img class="icon nav-icon" src="/assets/icons/trello-brands.svg" alt="trello icon" />Trello
+      </div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/0B5JoTe9rdtY3fnNGT3NCOUJFMjBuUGZZRFRiLUVFdzdSTFRkOXJDdDZKVEhWZ0tpTkxrLWc?usp=sharing" target="_blank">
+      <div class="nav-link google-drive-link">
+        <img class="icon nav-icon" src="/assets/icons/google-drive-brands.svg" alt="google drive icon" />Google Drive
+      </div>
+    </a>
+    <a href="https://mail.google.com/a/myndinitiative.org" target="_blank">
+      <div class="nav-link email-link">
+        <img class="icon nav-icon" src="/assets/icons/envelope-solid.svg" alt="envelope icon" />Email
+      </div>
+    </a>
     {{!-- <div class="nav-link meetings-link">
       <img class="icon nav-icon" src="/assets/icons/calendar-alt-solid.svg" alt="calendar icon" /><a>Meetings</a>
     </div> --}}
@@ -30,7 +50,13 @@
   </nav>
   <div class="flex flex-center">
     {{!-- TODO: replace with user image --}}
-    <img class="avatar sidebar-avatar edit-profile-link" src="{{user.avatar}}" alt="user avatar" />
+    <img class="avatar sidebar-avatar edit-profile-link"
+    {{#if currentUser.avatar}}
+    src="{{currentUser.avatar}}"
+    {{else}}
+    src="/uploads/avatars/avatar-default.jpg"
+    {{/if}}
+    alt="user avatar" />
     <a href="/logout"><img class="icon logout-link" src="/assets/icons/sign-out-alt-solid.svg" alt="logout icon" /></a>
   </div>
   <p class="credit">Volunteer Portal built by Caterina Turnbull</p>
