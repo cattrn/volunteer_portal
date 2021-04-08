@@ -10,10 +10,12 @@ router.get('/', (req, res) => {
       db.one("SELECT firstname, lastname, contact_number, email, primary_team, position, employee_status, city, TO_CHAR(commencement_date, 'DD/MM/YYYY') commencement_date, CASE WHEN active = true THEN 'Yes' ELSE 'No' END active, avatar FROM users WHERE id = 1")
     // TODO: current user
     .then((currentUser) => {
+      const emailDomain = currentUser.email.split('@')[1]
       res.render('pages/index', { 
         currentUser: currentUser,
         users: users,
-        teams: teams
+        teams: teams,
+        emailDomain: emailDomain
       })
     })
     .catch((err) => {

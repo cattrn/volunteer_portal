@@ -36,11 +36,20 @@
         <img class="icon nav-icon" src="/assets/icons/google-drive-brands.svg" alt="google drive icon" />Google Drive
       </div>
     </a>
+    {{#ifEquals emailDomain 'myndinitiative.org'}}
     <a href="https://mail.google.com/a/myndinitiative.org" target="_blank">
       <div class="nav-link email-link">
         <img class="icon nav-icon" src="/assets/icons/envelope-solid.svg" alt="envelope icon" />Email
       </div>
     </a>
+    {{/ifEquals}}
+    {{#ifEquals emailDomain 'gmail.com'}}
+    <a href="https://mail.google.com/mail/u/?authuser={{currentUser.email}}" target="_blank">
+      <div class="nav-link email-link">
+        <img class="icon nav-icon" src="/assets/icons/envelope-solid.svg" alt="envelope icon" />Email
+      </div>
+    </a>
+    {{/ifEquals}}
     {{!-- <div class="nav-link meetings-link">
       <img class="icon nav-icon" src="/assets/icons/calendar-alt-solid.svg" alt="calendar icon" /><a>Meetings</a>
     </div> --}}

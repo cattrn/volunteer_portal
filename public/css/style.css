@@ -284,9 +284,18 @@ input.upload-avatar::before {
   top: -180px;
 }
 
-.hour-logging form.flex {
-  justify-content: space-between;
+/* TODO: Review whether you want people to change where the hour logging toolbar is */
+/* .hour-logging.right {
+  left: auto;
+  right: 0;
+  min-width: auto;
+  width: 300px;
+  height: 100vh;
 }
+
+.hour-logging.right form .flex {
+  flex-wrap: wrap;
+} */
 
 .hour-logging form > div > div {
   width: 100%;
