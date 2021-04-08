@@ -24,3 +24,8 @@ $('.page-content').on('click', '.edit-log', function() {
   const logId = $(this).attr('class').slice(14)
   loadEditLog(logId)
 })
+
+// members
+$('.members-link').click(() => {
+  loadMembers()
+})

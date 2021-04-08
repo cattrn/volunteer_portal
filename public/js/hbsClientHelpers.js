@@ -1,5 +1,4 @@
 Handlebars.registerHelper("ifEquals", function(a, b, opts) {
-  console.log(a + ' ' + b)
   if (a == b) {
       return opts.fn(this)
   }

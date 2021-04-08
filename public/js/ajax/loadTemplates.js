@@ -46,3 +46,19 @@ const loadEditLog = (logid) => {
     $('.page-content').html(err.message)
   })
 }
+
+// members
+const loadMembers = () => {
+  $.getJSON("/api/directory")
+  .then((users) => {
+    const template = Handlebars.templates['members.hbs']
+    $('.page-content').html(
+      template({
+        users: users
+      })
+    )
+  })
+  .catch((err) => {
+    $('.page-content').html(err.message)
+  })
+}

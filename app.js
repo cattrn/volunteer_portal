@@ -7,6 +7,11 @@ const hbs = require('express-handlebars');
 const multer = require('multer');
 const hbsHelpers = require('./hbsHelpers.js');
 
+// Routers
+const uploadRouter =  require('./routes/upload');
+const apiRouter = require('./routes/api');
+const indexRouter = require('./routes/index');
+
 const app = express();
 
 const port = process.env.PORT || 3000
@@ -41,10 +46,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // });
 
 // Routers
-app.use('/', require('./routes/index'));
-app.use('/upload-avatar', require('./routes/upload'));
-app.use('/api', require('./routes/api'));
-app.use('/hours', require('./routes/hours'));
+app.use('/upload-avatar', uploadRouter);
+app.use('/api', apiRouter);
+app.use('/', indexRouter);
+// app.use('/hours', require('./routes/hours'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

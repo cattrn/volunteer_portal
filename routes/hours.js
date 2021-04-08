@@ -5,8 +5,6 @@ const db = require('../database')
 
 // POST request to edit logs
 router.post('/edit/:id', (req, res) => {
-  console.log(req.params.id)
-  console.log(req.body)
   db.none("UPDATE volunteer_logs SET team = $1, start_time = $2, end_time = $3, activity = $4 WHERE id = $5 AND owned_by = 1", [req.body.team, req.body.start_time, req.body.end_time, req.body.activity, req.params.id]) // TODO: current user
   .then(() => {
     res.redirect('/hours/my-hours')

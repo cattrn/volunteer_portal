@@ -11,7 +11,7 @@ A volunteer portal to support directory and record keeping, induction and onboar
 [ ] Check for overlapping logs
 [X] Links to Slack, Email, Drive, Trello
 [ ] Inviting new members to Slack, Google Drive & Trello - non-priority
-[ ] User directory
+[X] User directory
 [ ] Policy directory
 [ ] The ability for users to update their details
 [ ] The ability for volunteers to go on leave/quit - non priority
