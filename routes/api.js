@@ -48,9 +48,22 @@ router.get('/my-hours', (req, res) => {
 
 // all hours
 router.get('/all-hours/:id', (req, res) => {
-  db.any("SELECT id, owned_by, team, TO_CHAR(start_time, 'YYYY-MM-DD HH24:MM') start_time, TO_CHAR(end_time, 'YYYY-MM-DD HH24:MM') end_time, activity, TO_CHAR(AGE(end_time, start_time), 'HH24:MM') duration FROM volunteer_logs ORDER BY start_time DESC LIMIT 20 OFFSET (20 * $1)", req.params.id - 1) //TODO: current user
-  .then((rows) => {
-    res.json(rows)
+  const resultsPerPage = 20
+
+  db.any("SELECT id FROM volunteer_logs")
+  .then((list) => {
+    const pages = Math.ceil(list.length / resultsPerPage)
+
+    db.any("SELECT volunteer_logs.id AS id, owned_by, team, TO_CHAR(start_time, 'YYYY-MM-DD HH24:MM') start_time, TO_CHAR(end_time, 'YYYY-MM-DD HH24:MM') end_time, activity, TO_CHAR(AGE(end_time, start_time), 'HH24:MM') duration, firstname, lastname FROM volunteer_logs LEFT JOIN users ON owned_by = users.id ORDER BY start_time DESC LIMIT $1 OFFSET ($1 * $2)", [resultsPerPage, req.params.id - 1])
+    .then((rows) => {
+      res.json({
+        rows: rows,
+        pages: pages
+      })
+    })
+    .catch((err) => {
+      res.json(err.message)
+    })
   })
   .catch((err) => {
     res.json(err.message)

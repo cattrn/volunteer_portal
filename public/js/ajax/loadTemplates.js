@@ -47,6 +47,24 @@ const loadEditLog = (logid) => {
   })
 }
 
+// all hours
+const loadAllHours = (pageNumber) => {
+  $.getJSON(`/api/all-hours/${pageNumber}`)
+  .then(({ rows, pages }) => {
+    const template = Handlebars.templates['allHours.hbs']
+    $('.page-content').html(
+      template({
+        rows: rows,
+        pages: pages
+      })
+    )
+    displayPagination({rows, pages}, pageNumber)
+  })
+  .catch((err) => {
+    $('.page-content').html(err.message)
+  })
+}
+
 // members
 const loadMembers = () => {
   $.getJSON("/api/directory")

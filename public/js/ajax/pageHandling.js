@@ -25,6 +25,11 @@ $('.page-content').on('click', '.edit-log', function() {
   loadEditLog(logId)
 })
 
+// all hours
+$('.allhours-link').click(() => {
+  loadAllHours(1)
+})
+
 // members
 $('.members-link').click(() => {
   loadMembers()

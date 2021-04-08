@@ -1,0 +1,32 @@
+<div style="width:100%;">
+  <h1>All Logged Hours</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Activity</th>
+        <th>Team</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Length</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        <td>{{this.firstname}} {{this.lastname}}</td>
+        <td>{{this.activity}}</td>
+        <td>{{this.team}}</td>
+        <td>{{this.start_time}}</td>
+        <td>{{this.end_time}}</td>
+        <td>{{this.duration}}</td>
+        <td><a class="edit-log logid{{this.id}}">Edit <img src="/assets/icons/pencil-alt-solid.svg" alt="pencil icon" width="15" /></a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="pagination">
+    {{!-- Pagination buttons will be loaded into this space --}}
+  </div>
+</div>

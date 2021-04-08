@@ -166,17 +166,7 @@ input.upload-avatar::before {
   cursor: pointer;
 }
 
-/* input.upload-avatar + button {
-  background-color: var(--feature-color);
-  color: white;
-  padding: 10px;
-  text-transform: none;
-  font-weight: 400;
-} */
 
-/* input.upload-avatar + button:hover, input.upload-avatar:hover::before {
-  background-color: var(--dark-color);
-} */
 
 /* PROFILE -------------- */
 
@@ -425,4 +415,30 @@ td, th {
 
 td:not(thead td):first-child {
   font-weight: 900;
+}
+
+/* PAGINATION ------------- */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.pagination div {
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  background-color: var(--dark-color);
+  color: white;
+  font-weight: 900;
+}
+
+.pagination div:not(.current):hover {
+  background-color: var(--sidebar-hover-color);
+}
+
+.pagination .current {
+  background-color: var(--feature-color);
+  cursor: default;
 }
