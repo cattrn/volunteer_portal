@@ -96,3 +96,19 @@ const loadResources = () => {
     $('.page-content').html(err.message)
   })
 }
+
+// edit profile
+const loadEditProfile = () => {
+  $.getJSON("/api/current-user")
+  .then((currentUser) => {
+    const template = Handlebars.templates['editProfile.hbs']
+    $('.page-content').html(
+      template({
+        currentUser: currentUser
+      })
+    )
+  })
+  .catch((err) => {
+    $('.page-content').html(err.message)
+  })
+}

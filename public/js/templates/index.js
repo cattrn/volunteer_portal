@@ -47,6 +47,6 @@ templates['index.hbs'] = template({"1":function(container,depth0,helpers,partial
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"currentUser") : depth0)) != null ? lookupProperty(stack1,"commencement_date") : stack1), depth0))
     + "</p>\n      <p><strong>Currently active: </strong>"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"currentUser") : depth0)) != null ? lookupProperty(stack1,"active") : stack1), depth0))
-    + "</p>\n      <a href=\"#\">Edit details <img src=\"/assets/icons/pencil-alt-solid.svg\" alt=\"pencil icon\" width=\"15\" /></a>\n    </div>\n  </div>\n</div>\n<div class=\"todo\"></div>";
+    + "</p>\n      <a class=\"edit-profile-link\">Edit details <img src=\"/assets/icons/pencil-alt-solid.svg\" alt=\"pencil icon\" width=\"15\" /></a>\n    </div>\n  </div>\n</div>\n<div class=\"todo\"></div>";
 },"useData":true});
 })();

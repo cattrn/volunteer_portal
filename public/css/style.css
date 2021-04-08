@@ -112,6 +112,10 @@ p {
 
 /* GLOBAL FORMS --------- */
 
+label {
+  font-weight: 900;
+}
+
 input, select {
   width: 100%;
   min-width: 100px;
@@ -222,10 +226,6 @@ input.upload-avatar::before {
   background-color: var(--feature-color);
 }
 
-.sidebar .nav-link.active > a {
-  cursor: default;
-}
-
 .sidebar a {
   color: white;
   text-decoration: none;
@@ -253,6 +253,10 @@ input.upload-avatar::before {
   font-size: .75em;
   color: white;
   line-height: 1.25em;
+}
+
+.edit-profile-link {
+  cursor: pointer;
 }
 
 /* HOUR LOGGING ---------- */

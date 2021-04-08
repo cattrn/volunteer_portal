@@ -39,3 +39,8 @@ $('.members-link').click(() => {
 $('.resources-link').click(() => {
   loadResources()
 })
+
+// edit profile
+$('body').on('click', '.edit-profile-link', function() {
+  loadEditProfile()
+})
