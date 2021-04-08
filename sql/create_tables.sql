@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS users(
   last_login TIMESTAMPTZ,
   user_role VARCHAR(50) NOT NULL DEFAULT 'member',
   avatar VARCHAR(50),
+  inducting BOOLEAN NOT NULL DEFAULT true,
 
   CONSTRAINT fk_team
     FOREIGN KEY(primary_team)

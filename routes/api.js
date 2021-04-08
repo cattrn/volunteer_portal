@@ -46,6 +46,17 @@ router.get('/my-hours', (req, res) => {
   })
 })
 
+// all hours
+router.get('/all-hours/:id', (req, res) => {
+  db.any("SELECT id, owned_by, team, TO_CHAR(start_time, 'YYYY-MM-DD HH24:MM') start_time, TO_CHAR(end_time, 'YYYY-MM-DD HH24:MM') end_time, activity, TO_CHAR(AGE(end_time, start_time), 'HH24:MM') duration FROM volunteer_logs ORDER BY start_time DESC LIMIT 20 OFFSET (20 * $1)", req.params.id - 1) //TODO: current user
+  .then((rows) => {
+    res.json(rows)
+  })
+  .catch((err) => {
+    res.json(err.message)
+  })
+})
+
 // GET request for editing individual logs
 router.get('/log/edit/:id', (req, res) => {
   db.any("SELECT id, team_name FROM teams ORDER BY team_name ASC")

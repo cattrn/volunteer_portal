@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   .then((users) => {
     db.any("SELECT id, team_name FROM teams ORDER BY team_name")
     .then((teams) => {
-      db.one("SELECT firstname, lastname, contact_number, email, primary_team, position, employee_status, city, TO_CHAR(commencement_date, 'DD/MM/YYYY') commencement_date, CASE WHEN active = true THEN 'Yes' ELSE 'No' END active, avatar FROM users WHERE id = 1")
+      db.one("SELECT firstname, lastname, contact_number, email, primary_team, position, employee_status, city, TO_CHAR(commencement_date, 'DD/MM/YYYY') commencement_date, CASE WHEN active = true THEN 'Yes' ELSE 'No' END active, user_role, avatar, inducting FROM users WHERE id = 1")
     // TODO: current user
     .then((currentUser) => {
       const emailDomain = currentUser.email.split('@')[1]

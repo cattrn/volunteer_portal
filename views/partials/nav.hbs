@@ -6,9 +6,22 @@
     <div class="nav-link dashboard-link active">
       <img class="icon nav-icon" src="/assets/icons/home-solid.svg" alt="home icon" />Dashboard
     </div>
+    {{#ifEquals currentUser.inducting 'true'}}
     <div class="nav-link induction-link">
       <img class="icon nav-icon" src="/assets/icons/user-plus-solid.svg" alt="user with plus icon" />Induction
     </div>
+    {{/ifEquals}}
+    {{#ifEquals currentUser.user_role 'admin'}}
+    <div class="nav-link onboarding-link">
+      <img class="icon nav-icon" src="/assets/icons/user-cog-solid.svg" alt="user with cog icon" />Onboarding
+    </div>
+    <div class="nav-link settings-link">
+      <img class="icon nav-icon" src="/assets/icons/cog-solid.svg" alt="user with plus icon" />Admin Settings
+    </div>
+    <div class="nav-link allhours-link">
+      <img class="icon nav-icon" src="/assets/icons/history-solid.svg" alt="user with plus icon" />All Hours
+    </div>
+    {{/ifEquals}}
     <div class="nav-link hours-link">
       <img class="icon nav-icon" src="/assets/icons/clock-solid.svg" alt="clock icon" />My Hours
     </div>

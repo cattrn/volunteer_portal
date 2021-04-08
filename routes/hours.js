@@ -22,7 +22,7 @@ router.post('/add', (req, res) => {
     res.redirect('/')
   })
   .catch((err) => {
-    res.json(err)
+    res.json(err.message)
   })
 })
 
