@@ -62,3 +62,19 @@ const loadMembers = () => {
     $('.page-content').html(err.message)
   })
 }
+
+// resources
+const loadResources = () => {
+  $.getJSON("/api/current-user")
+  .then((currentUser) => {
+    const template = Handlebars.templates['resources.hbs']
+    $('.page-content').html(
+      template({
+        currentUser: currentUser
+      })
+    )
+  })
+  .catch((err) => {
+    $('.page-content').html(err.message)
+  })
+}

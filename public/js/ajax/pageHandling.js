@@ -29,3 +29,8 @@ $('.page-content').on('click', '.edit-log', function() {
 $('.members-link').click(() => {
   loadMembers()
 })
+
+// members
+$('.resources-link').click(() => {
+  loadResources()
+})

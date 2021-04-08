@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-
+// TODO: move this to ajax request
 router.post('/', upload.single('avatar'), (req, res) => {
 
   // req.file contains information of uploaded file

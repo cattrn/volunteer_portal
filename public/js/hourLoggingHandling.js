@@ -6,7 +6,7 @@ $('.close-hour-logging').click(() => {
 })
 
 // reopen hour logging
-$('.open-hour-logging').click(() => {
+$('.open-hour-logging > div').click(() => {
   $('.hour-logging').removeClass('closed')
   $('.page-content').removeClass('hour-logging-closed')
   $('.open-hour-logging').addClass('hidden')

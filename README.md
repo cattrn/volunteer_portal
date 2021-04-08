@@ -25,7 +25,7 @@ Taking feature requests and currently in design.
 
 ## TODO
 
-
+[ ] Hour logging validation
 
 ## Follow up questions
 

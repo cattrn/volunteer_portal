@@ -108,7 +108,6 @@ p {
 
 .small-avatar {
   width: 50px;
-  border: white 3px solid;
 }
 
 /* GLOBAL FORMS --------- */
@@ -139,6 +138,7 @@ button {
   color: var(--feature-color);
   background-color: transparent;
   font-weight: 900;
+  outline: none;
 }
 
 button:hover {
@@ -277,6 +277,7 @@ input.upload-avatar::before {
   left: 200px;
   height: 180px;
   transition: top 1s ease;
+  z-index: 99;
 }
 
 .hour-logging.closed {
@@ -325,7 +326,6 @@ input.upload-avatar::before {
 
 .open-hour-logging {
   text-align: center;
-  cursor: pointer;
 }
 
 .open-hour-logging > div {
@@ -335,12 +335,17 @@ input.upload-avatar::before {
   padding: 5px 25px;
   border-radius: 0 0 15px 15px;
   background-color: var(--feature-color);
+  cursor: pointer;
 }
 
-/* LINKS -------------- */
+/* RESOURCES -------------- */
+
+.videos > div {
+  flex-grow: 1;
+}
 
 .links {
-  margin: 0 15px;
+  margin-top: 30px;
 }
 
 .links > a {
@@ -349,8 +354,6 @@ input.upload-avatar::before {
   padding: 15px;
   text-align: center;
   text-decoration: none;
-  width: 100px;
-  height: 100px;
 }
 
 .links > a:hover {
@@ -361,9 +364,33 @@ input.upload-avatar::before {
   margin-right: 20px;
 }
 
-.links img {
-  height: 50%;
-  margin-bottom: 10px;
+.flex > button:first-child {
+  margin-left: 0;
+}
+
+/* Responsive iFrames */
+
+[style*="--aspect-ratio"] > :first-child {
+  width: 100%;
+}
+[style*="--aspect-ratio"] > img {  
+  height: auto;
+} 
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }  
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }  
 }
 
 /* TABLE STYLING --------- */
