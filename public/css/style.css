@@ -110,6 +110,7 @@ p {
 
 input, select {
   width: 100%;
+  min-width: 100px;
   margin: 10px 0;
   padding: 10px;
   border-style: solid;

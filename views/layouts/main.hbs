@@ -14,6 +14,15 @@
   <script src="/js/utils/dates.js" defer></script>
   <script src="/js/hourLoggingHandling.js" defer></script>
   <script src="/js/dashboardHandling.js" defer></script>
+  {{!-- Handlebars precompiling --}}
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+  <script src="/js/hbsClientHelpers.js" defer></script>
+  <script src="/js/templates/index.js" defer></script>
+  <script src="/js/templates/myHours.js" defer></script>
+  <script src="/js/templates/editLog.js" defer></script>
+  {{!-- Page handling --}}
+  <script src="/js/ajax/loadTemplates.js" defer></script>
+  <script src="/js/ajax/pageHandling.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -23,7 +32,7 @@
     {{> hourLogging }}
     {{!-- TODO: check if employees need to log hours --}}
     <div class="page-content">
-      {{{body}}}
+      {{!-- {{{body}}} --}}
     </div>
   </div>
 </body>
