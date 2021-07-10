@@ -13,7 +13,7 @@ A volunteer portal to support directory and record keeping, induction and onboar
 [ ] Inviting new members to Slack, Google Drive & Trello - non-priority
 [X] User directory
 [ ] Policy directory
-[ ] The ability for users to update their details
+[X] The ability for users to update their details
 [ ] The ability for volunteers to go on leave/quit - non priority
 [ ] The ability for volunteers to request employment - non-priority
 [ ] The ability to schedule online meetings with others - non-priority
@@ -26,6 +26,14 @@ Taking feature requests and currently in design.
 ## TODO
 
 [ ] Hour logging validation
+[ ] Fix editing logs
+[ ] File upload validation
+[ ] Avatar cropping and resizing
+[ ] Onboarding page
+[ ] Induction page
+[ ] Portal Settings page
+[ ] Policies page - look into google drive API
+[ ] Option to drag and reorder nav
 
 ## Follow up questions
 
